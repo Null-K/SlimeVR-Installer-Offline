@@ -35,30 +35,30 @@ Unicode True
 
 # Define all download URLs and versions here for easy editing
 !define MVCVersion ""
-!define MVCURLType "url" ; "url" or "local"
-!define MVCDLURL "https://aka.ms/vc14/vc_redist.x64.exe"
+!define MVCURLType "local" ; "url" or "local"
+!define MVCDLURL "assets\vc_redist.x64.exe"
 !define MVCDLFileZip "vc_redist.x64.exe"
 
 # Define the Java Version Strings and to Check (JRE\relase -> JAVA_RUNTIME_VERSION=)
 !define JREVersion "17.0.17+10"
-!define JREURLType "url" ; "url" or "local"
-!define JREDLURL "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.17%2B10/OpenJDK17U-jre_x64_windows_hotspot_17.0.17_10.zip"
+!define JREURLType "local" ; "url" or "local"
+!define JREDLURL "assets\OpenJDK17U-jre_x64_windows_hotspot_17.0.17_10.zip"
 !define JREDLFileZip "OpenJDK17U-jre_x64_windows_hotspot_17.0.17_10.zip"
 
 !define SVRServerVersion "latest"
-!define SVRServerURLType "url" ; "url" or "local"
-!define SVRServerDLURL "https://github.com/SlimeVR/SlimeVR-Server/releases/latest/download/SlimeVR-win64.zip"
-!define SVRServerDLFileZip "SlimeVR-Server-latest.zip"
+!define SVRServerURLType "local" ; "url" or "local"
+!define SVRServerDLURL "assets\SlimeVR-win64.zip"
+!define SVRServerDLFileZip "SlimeVR-win64.zip"
 
 !define SVRDriverVersion "latest"
-!define SVRDriverURLType "url" ; "url" or "local"
-!define SVRDriverDLURL "https://github.com/SlimeVR/SlimeVR-OpenVR-Driver/releases/latest/download/slimevr-openvr-driver-win64.zip"
+!define SVRDriverURLType "local" ; "url" or "local"
+!define SVRDriverDLURL "assets\slimevr-openvr-driver-win64.zip"
 !define SVRDriverDLFileZip "slimevr-openvr-driver-win64.zip"
 
 !define SVRFeederVersion "latest"
-!define SVRFeederURLType "url" ; "url" or "local"
-!define SVRFeederDLURL "https://github.com/SlimeVR/SlimeVR-Feeder-App/releases/latest/download/SlimeVR-Feeder-App-win64.zip"
-!define SVRFeederDLFileZip "SlimeVR-Feeder-App-latest.zip"
+!define SVRFeederURLType "local" ; "url" or "local"
+!define SVRFeederDLURL "assets\SlimeVR-Feeder-App-win64.zip"
+!define SVRFeederDLFileZip "SlimeVR-Feeder-App-win64.zip"
 
 Var JREneedInstall
 Var /GLOBAL PUBLIC
