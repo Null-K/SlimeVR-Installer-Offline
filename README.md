@@ -1,7 +1,21 @@
 # SlimeVR Installer
 
 Get yourself an installer from the releases page:
-* Windows: https://github.com/SlimeVR/SlimeVR-Installer/releases/latest/download/slimevr_web_installer.exe
+
+- **Web Installer (Official)**
+    - Windows: https://github.com/SlimeVR/SlimeVR-Installer/releases/latest/download/slimevr_web_installer.exe
+
+- **Offline Installer (Mirror / Unofficial)**
+    - Windows: https://github.com/Null-K/SlimeVR-Installer-Offline/releases/latest/download/slimevr_offline_installer.exe
+
+  Provides a full offline installation package with bundled dependencies for environments with limited or unstable network access.  
+  This version is maintained as a mirror and may not always be in sync with the latest official release.
+
+## Notes on Offline Installer
+
+- The offline installer is a **non-official mirror distribution**  
+- It includes pre-downloaded dependencies (JRE, drivers, server, etc.)  
+- For the most up-to-date version and full support, the official web installer is recommended
 
 ## Contributions
 
