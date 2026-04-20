@@ -77,7 +77,7 @@ SpaceTexts none # Don't show required disk space since we don't know for sure
 SetOverwrite on
 SetCompressor lzma  # Use LZMA Compression algorithm, compression quality is better.
 
-OutFile "slimevr_web_installer.exe"
+OutFile "slimevr_offline_installer.exe"
 
 # Define installation directory
 InstallDir "$PROGRAMFILES\SlimeVR Server" ; $InstDir default value. Defaults to user's local appdata to avoid asking admin rights
@@ -85,7 +85,7 @@ InstallDir "$PROGRAMFILES\SlimeVR Server" ; $InstDir default value. Defaults to 
 ShowInstDetails show
 ShowUninstDetails show
 
-BrandingText "SlimeVR Installer 4.0.0"
+BrandingText "SlimeVR Offline Installer 4.0.0"
 
 # Admin rights are required for:
 # 1. Removing Start Menu shortcut in Windows 7+
