@@ -1,6 +1,6 @@
 # Workflow based on https://github.com/joncloud/makensis-action-test/blob/publish/.github/workflows/main.yml
 
-name: SlimeVR Windows Web Installer
+name: SlimeVR Windows Offline Installer
 
 on: [ push, pull_request, workflow_dispatch ]
 
@@ -58,9 +58,9 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           # Artifact name
-          name: "slimevr_web_installer" # optional, default is artifact
+          name: "slimevr_offline_installer" # optional, default is artifact
           # A file, directory or wildcard pattern that describes what to upload
-          path: ${{ env.WINDOWS_WEB_DIR }}/slimevr_web_installer.exe
+          path: ${{ env.WINDOWS_WEB_DIR }}/slimevr_offline_installer.exe
 
       - name: Upload to draft release
         uses: softprops/action-gh-release@v2
@@ -68,4 +68,4 @@ jobs:
         with:
           draft: true
           generate_release_notes: true
-          files: "${{ env.WINDOWS_WEB_DIR }}/slimevr_web_installer.exe"
+          files: "${{ env.WINDOWS_WEB_DIR }}/slimevr_offline_installer.exe"
