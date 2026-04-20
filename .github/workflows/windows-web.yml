@@ -11,12 +11,44 @@ jobs:
     env:
       # The directory of the web installer project
       WINDOWS_WEB_DIR: ${{ github.workspace }}/windows/web
+      WINDOWS_WEB_ASSETS_DIR: ${{ github.workspace }}/windows/web/assets
+      MVC_URL: https://aka.ms/vc14/vc_redist.x64.exe
+      JRE_URL: https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.17%2B10/OpenJDK17U-jre_x64_windows_hotspot_17.0.17_10.zip
+      SVR_SERVER_URL: https://github.com/SlimeVR/SlimeVR-Server/releases/latest/download/SlimeVR-win64.zip
+      SVR_DRIVER_URL: https://github.com/SlimeVR/SlimeVR-OpenVR-Driver/releases/latest/download/slimevr-openvr-driver-win64.zip
+      SVR_FEEDER_URL: https://github.com/SlimeVR/SlimeVR-Feeder-App/releases/latest/download/SlimeVR-Feeder-App-win64.zip
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
         with:
           submodules: recursive
+      
+      - name: Download offline installer assets
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $outDir = "${{ env.WINDOWS_WEB_ASSETS_DIR }}"
+          New-Item -ItemType Directory -Force -Path $outDir | Out-Null
+
+          $downloads = @(
+            @{ Url = "${{ env.MVC_URL }}"; FileName = "vc_redist.x64.exe" },
+            @{ Url = "${{ env.JRE_URL }}"; FileName = "OpenJDK17U-jre_x64_windows_hotspot_17.0.17_10.zip" },
+            @{ Url = "${{ env.SVR_SERVER_URL }}"; FileName = "SlimeVR-win64.zip" },
+            @{ Url = "${{ env.SVR_DRIVER_URL }}"; FileName = "slimevr-openvr-driver-win64.zip" },
+            @{ Url = "${{ env.SVR_FEEDER_URL }}"; FileName = "SlimeVR-Feeder-App-win64.zip" }
+          )
+
+          foreach ($download in $downloads) {
+            $target = Join-Path $outDir $download.FileName
+            if (Test-Path $target) {
+              Remove-Item $target -Force
+            }
+
+            Write-Host "Downloading $($download.FileName)"
+            Invoke-WebRequest -Uri $download.Url -OutFile $target
+          }
+      
       - name: Create NSIS installer
         uses: joncloud/makensis-action@v5.0
         with:
